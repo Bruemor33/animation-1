@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Animation</title>
+  <link rel="stylesheet" href="app.css">
+  <script type="text/javascript">
+    function draw(){
+      var canvas = document.getElementById('tutorial');
+
+      if (canvas.getContext){
+        var ctx = canvas.getContext('2d');
+
+        ctx.fillRect (25,25,100,100);
+        ctx.clearRect (45, 45, 60, 60);
+        ctx.strokeRect (50,50,50,50);
+
+      }
+
+      var triangle = document.getElementById('triangle');
+
+      if (triangle.getContext){
+        var triCtx = triangle.getContext('2d');
+
+        triCtx.beginPath();
+        triCtx.moveTo(75,50);
+        triCtx.lineTo(100,75);
+        triCtx.lineTo(100,25);
+        triCtx.fill();
+      }
+
+      var smiley = document.getElementById('smiley');
+
+      if (smiley.getContext){
+        var smileCtx = smiley.getContext('2d');
+
+        smileCtx.beginPath();
+        smileCtx.arc(75,75,50,0, Math.PI*2, true); //Outer circle
+        smileCtx.moveTo(110,75);
+        smileCtx.arc(75, 75, 35, 0, Math.PI, false); //Mouth clockwise
+        smileCtx.moveTo(65, 65);
+        smileCtx.arc(60, 65, 5, 0, Math.PI*2, true); //Left eye
+        smileCtx.moveTo(95,65);
+        smileCtx.arc(90, 65, 5, 0, Math.PI*2, true); //Right eye
+        smileCtx.stroke();
+      }
+
+      var twoTriangles = document.getElementById('two-triangles');
+
+      if (twoTriangles.getContext){
+        var twoTrianglesCtx = twoTriangles.getContext('2d');
+
+        //Filled triangle
+        twoTrianglesCtx.beginPath();
+        twoTrianglesCtx.moveTo(25,25);
+        twoTrianglesCtx.lineTo(105, 25);
+        twoTrianglesCtx.lineTo(25, 105);
+        twoTrianglesCtx.fill();
+
+        //Outlined Triangle
+        twoTrianglesCtx.beginPath();
+        twoTrianglesCtx.moveTo(125, 125);
+        twoTrianglesCtx.lineTo(125, 45);
+        twoTrianglesCtx.lineTo(45, 125);
+        twoTrianglesCtx.closePath();
+        twoTrianglesCtx.stroke();
+      }
+
+    }
+
+  </script>
+</head>
+
+<body onload="draw();">
+
+  <h1>A walk through HTML5 Animation using the Canvas tag</h1>
+  <p>This is a follow thorugh of the tutorial provided by developer.mozilla.org</p>
+  <h4>The Bellow is an example using the rectangle drawing methods</h4>
+  <canvas id="tutorial" width="150" height="150"></canvas>
+
+  <h4>The Bellow is an example of drawing a triangle using paths</h4>
+  <canvas id="triangle" width="150" height="150"></canvas>
+
+  <h4>The Bellow is an example of using the moveTo( ) method</h4>
+  <canvas id="smiley" width="150" height="150"></canvas>
+
+  <h4>The Bellow is ac example of using the lineTo(x,y) method to illustrate drawign lines.</h4>
+  <canvas id="two-triangles" width="150" height="150"></canvas>
+
+  <h4>Click the link to go to basic animations</h4>
+  <a href="animations.html">Animations</a>
+
+  <script src="app.js"></script>
+
+</body>
+
+
+</html>
